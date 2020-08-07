@@ -1,24 +1,13 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import WelcomeScreen from "./app/assets/screens/WelcomeScreen";
+import FirstScreen from "./app/assets/screens/FirstScreen";
+import ViewImageScreen from "./app/assets/screens/ViewImageScreen";
 
 export default function App() {
-  let x = 1;
-  console.log("debugging");
-
   return (
-    <View style={styles.container}>
-      <Text>Hello React Native</Text>
-      <StatusBar style="auto" />
-    </View>
+    // <WelcomeScreen />
+    // <FirstScreen />
+    <ViewImageScreen />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
