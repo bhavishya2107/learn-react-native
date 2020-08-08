@@ -5,19 +5,27 @@ import FirstScreen from "./app/assets/screens/FirstScreen";
 import ViewImageScreen from "./app/assets/screens/ViewImageScreen";
 
 import AppText from "./app/assets/components/AppText";
-import { View, Alert } from "react-native";
+import { View, Alert, SafeAreaView, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AppButton from "./app/assets/components/AppButton";
-
+import { handlePress } from "./app/assets/config/methods";
+import AppCard from "./app/assets/components/AppCard";
 export default function App() {
-  const handlePress = () => {
-    Alert.alert("My Alert", "My message", [
-      { text: "Yes", onPress: () => console.log("you clicked yes") },
-      { text: "No", onPress: () => console.log("you clicked no") },
-    ]);
-  };
   return (
-    <WelcomeScreen onPress={handlePress} />
+    // <WelcomeScreen onPress={handlePress} />
+    <View style={styles.mainView}>
+      <AppCard
+        title="Red jacket for sale"
+        subTitle="$100"
+        image={require("./app/assets/jacket.jpg")}
+      />
+      <AppCard
+        title="Red jacket for sale"
+        subTitle="$100"
+        image={require("./app/assets/jacket.jpg")}
+      />
+    </View>
+
     // <FirstScreen />
     // <ViewImageScreen />
     // <View
@@ -33,3 +41,11 @@ export default function App() {
     // </View>
   );
 }
+
+const styles = StyleSheet.create({
+  mainView: {
+    backgroundColor: "#f8f4f4",
+    padding: 20,
+    paddingVertical: 100,
+  },
+});
