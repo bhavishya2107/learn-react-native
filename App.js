@@ -10,24 +10,22 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AppButton from "./app/assets/components/AppButton";
 import { handlePress } from "./app/assets/config/methods";
 import AppCard from "./app/assets/components/AppCard";
+import ListingDetailsScreen from "./app/assets/components/ListingDetailsScreen.js";
+
 export default function App() {
   return (
     // <WelcomeScreen onPress={handlePress} />
-    <View style={styles.mainView}>
-      <AppCard
-        title="Red jacket for sale"
-        subTitle="$100"
-        image={require("./app/assets/jacket.jpg")}
-      />
-      <AppCard
-        title="Red jacket for sale"
-        subTitle="$100"
-        image={require("./app/assets/jacket.jpg")}
-      />
-    </View>
+    // <View style={styles.mainView}>
+    //   <AppCard
+    //     title="Red jacket for sale"
+    //     subTitle="$100"
+    //     image={require("./app/assets/jacket.jpg")}
+    //   />
+    //   <ListingDetailsScreen title="Red Jacket for sale" subtitle="$100" />
+    // </View>
 
     // <FirstScreen />
-    // <ViewImageScreen />
+    <ViewImageScreen />
     // <View
     //   style={{
     //     flex: 1,
