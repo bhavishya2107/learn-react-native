@@ -11,6 +11,7 @@ import AppButton from "./app/assets/components/AppButton";
 import { handlePress } from "./app/assets/config/methods";
 import AppCard from "./app/assets/components/AppCard";
 import ListingDetailsScreen from "./app/assets/components/ListingDetailsScreen.js";
+import MessagesScreen from "./app/assets/screens/MessagesScreen";
 
 export default function App() {
   return (
@@ -25,7 +26,7 @@ export default function App() {
     // </View>
 
     // <FirstScreen />
-    <ViewImageScreen />
+    // <ViewImageScreen />
     // <View
     //   style={{
     //     flex: 1,
@@ -37,6 +38,7 @@ export default function App() {
     //   <MaterialCommunityIcons name="email" size={200} color="tomato" />
     //   <AppButton title="Login" />
     // </View>
+    <MessagesScreen />
   );
 }
 
