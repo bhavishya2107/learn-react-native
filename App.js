@@ -15,6 +15,7 @@ import ListingDetailsScreen from "./app/assets/components/ListingDetailsScreen.j
 import MessagesScreen from "./app/assets/screens/MessagesScreen";
 import ListItem from "./app/assets/components/ListItem";
 import AccountScreen from "./app/assets/screens/AccountScreen";
+import ListingsScreen from "./app/assets/screens/ListingsScreen";
 
 export default function App() {
   return (
@@ -49,7 +50,8 @@ export default function App() {
     //   />
     //   {/* <Icon name="email" size={100} /> */}
     // </Screen>
-    <AccountScreen />
+    // <AccountScreen />
+    <ListingsScreen />
   );
 }
 
