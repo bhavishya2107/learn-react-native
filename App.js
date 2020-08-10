@@ -14,6 +14,7 @@ import AppCard from "./app/assets/components/AppCard";
 import ListingDetailsScreen from "./app/assets/components/ListingDetailsScreen.js";
 import MessagesScreen from "./app/assets/screens/MessagesScreen";
 import ListItem from "./app/assets/components/ListItem";
+import AccountScreen from "./app/assets/screens/AccountScreen";
 
 export default function App() {
   return (
@@ -41,13 +42,14 @@ export default function App() {
     //   <AppButton title="Login" />
     // </View>
     // <MessagesScreen />
-    <Screen>
-      <ListItem
-        title="My title"
-        ImageComponent={<Icon name="email" size={50} />}
-      />
-      {/* <Icon name="email" size={100} /> */}
-    </Screen>
+    // <Screen>
+    //   <ListItem
+    //     title="My title"
+    //     ImageComponent={<Icon name="email" size={50} />}
+    //   />
+    //   {/* <Icon name="email" size={100} /> */}
+    // </Screen>
+    <AccountScreen />
   );
 }
 
