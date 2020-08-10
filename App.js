@@ -3,7 +3,8 @@ import React from "react";
 import WelcomeScreen from "./app/assets/screens/WelcomeScreen";
 import FirstScreen from "./app/assets/screens/FirstScreen";
 import ViewImageScreen from "./app/assets/screens/ViewImageScreen";
-
+import Screen from "./app/assets/components/Screen";
+import Icon from "./app/assets/components/Icon";
 import AppText from "./app/assets/components/AppText";
 import { View, Alert, SafeAreaView, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -11,6 +12,8 @@ import AppButton from "./app/assets/components/AppButton";
 import { handlePress } from "./app/assets/config/methods";
 import AppCard from "./app/assets/components/AppCard";
 import ListingDetailsScreen from "./app/assets/components/ListingDetailsScreen.js";
+import MessagesScreen from "./app/assets/screens/MessagesScreen";
+import ListItem from "./app/assets/components/ListItem";
 
 export default function App() {
   return (
@@ -25,7 +28,7 @@ export default function App() {
     // </View>
 
     // <FirstScreen />
-    <ViewImageScreen />
+    // <ViewImageScreen />
     // <View
     //   style={{
     //     flex: 1,
@@ -37,6 +40,14 @@ export default function App() {
     //   <MaterialCommunityIcons name="email" size={200} color="tomato" />
     //   <AppButton title="Login" />
     // </View>
+    // <MessagesScreen />
+    <Screen>
+      <ListItem
+        title="My title"
+        ImageComponent={<Icon name="email" size={50} />}
+      />
+      {/* <Icon name="email" size={100} /> */}
+    </Screen>
   );
 }
 
