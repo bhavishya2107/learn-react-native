@@ -1,10 +1,11 @@
-import React from "react";
-import { StyleSheet, Text, View, FlatList } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, FlatList } from "react-native";
 import ListItem from "../components/ListItem";
 import Screen from "../components/Screen";
 import ListSeperator from "../components/ListSeperator";
+import ListItemDeleteAction from "../components/ListItemDeleteAction";
 
-const messages = [
+const initialMessages = [
   {
     id: 1,
     title: "T1",
@@ -26,6 +27,11 @@ const messages = [
 ];
 
 const MessagesScreen = () => {
+  const [messages, setMessages] = useState(initialMessages);
+  const [refreshing, setRefreshing] = useState(false);
+  const handleDeleteMessage = (message) => {
+    setMessages(messages.filter((msg) => msg.id !== message.id));
+  };
   return (
     <Screen style={styles.screen}>
       <FlatList
@@ -36,18 +42,23 @@ const MessagesScreen = () => {
             title={item.title}
             subTitle={item.description}
             image={item.image}
-            onPress={() => console.log("Message Selected", item)}
             renderRightActions={() => (
-              <View
-                style={{
-                  backgroundColor: "red",
-                  width: 70,
-                }}
-              ></View>
+              <ListItemDeleteAction onPress={() => handleDeleteMessage(item)} />
             )}
           />
         )}
         ItemSeparatorComponent={ListSeperator}
+        refreshing={refreshing}
+        onRefresh={() =>
+          setMessages([
+            {
+              id: 2,
+              title: "T2",
+              description: "D2",
+              image: require("../../assets/bhavishya.jpeg"),
+            },
+          ])
+        }
       />
     </Screen>
   );
@@ -55,10 +66,4 @@ const MessagesScreen = () => {
 
 export default MessagesScreen;
 
-const styles = StyleSheet.create({
-  seperator: {
-    width: "100%",
-    height: 1,
-    backgroundColor: "#000",
-  },
-});
+const styles = StyleSheet.create({});
