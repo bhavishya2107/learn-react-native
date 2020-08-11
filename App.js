@@ -16,6 +16,8 @@ import MessagesScreen from "./app/assets/screens/MessagesScreen";
 import ListItem from "./app/assets/components/ListItem";
 import AccountScreen from "./app/assets/screens/AccountScreen";
 import ListingsScreen from "./app/assets/screens/ListingsScreen";
+import AppTextInput from "./app/assets/components/AppTextInput";
+import AppPicker from "./app/assets/components/AppPicker";
 
 export default function App() {
   return (
@@ -51,7 +53,12 @@ export default function App() {
     //   {/* <Icon name="email" size={100} /> */}
     // </Screen>
     // <AccountScreen />
-    <ListingsScreen />
+    // <ListingsScreen />
+    // <AppTextInput placeholder="Username" icon="email" />
+    <View>
+      <AppPicker icon="apps" placeholder="Category" />
+      <AppTextInput icon="email" placeholder="Email" />
+    </View>
   );
 }
 
