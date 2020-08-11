@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useState } from "react";
 import WelcomeScreen from "./app/assets/screens/WelcomeScreen";
 import FirstScreen from "./app/assets/screens/FirstScreen";
 import ViewImageScreen from "./app/assets/screens/ViewImageScreen";
@@ -19,7 +19,14 @@ import ListingsScreen from "./app/assets/screens/ListingsScreen";
 import AppTextInput from "./app/assets/components/AppTextInput";
 import AppPicker from "./app/assets/components/AppPicker";
 
+const categories = [
+  { label: "Furniture", value: 1 },
+  { label: "Sofa", value: 2 },
+  { label: "Chair", value: 3 },
+];
+
 export default function App() {
+  const [category, setCategory] = useState(categories[0]);
   return (
     // <WelcomeScreen onPress={handlePress} />
     // <View style={styles.mainView}>
@@ -55,10 +62,16 @@ export default function App() {
     // <AccountScreen />
     // <ListingsScreen />
     // <AppTextInput placeholder="Username" icon="email" />
-    <View>
-      <AppPicker icon="apps" placeholder="Category" />
+    <Screen>
+      <AppPicker
+        selectedItem={category}
+        onSelectItem={(item) => setCategory(item)}
+        items={categories}
+        icon="apps"
+        placeholder="Category"
+      />
       <AppTextInput icon="email" placeholder="Email" />
-    </View>
+    </Screen>
   );
 }
 

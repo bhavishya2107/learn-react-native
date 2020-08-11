@@ -1,25 +1,65 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Platform } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Platform,
+  Modal,
+  Button,
+  TouchableWithoutFeedback,
+  FlatList,
+} from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { TextInput } from "react-native-gesture-handler";
 import colors from "../config/colors";
-import Constants from "expo-constants";
 import AppText from "../components/AppText";
+import Pickeritem from "../components/PickerItem";
 
-const AppPicker = ({ icon, placeholder, ...otherProps }) => {
-  const [text, setText] = useState("");
+const AppPicker = ({
+  icon,
+  items,
+  placeholder,
+  selectedItem,
+  onSelectItem,
+}) => {
+  const [modalVisible, setModalVisible] = useState(false);
   return (
-    <View style={styles.container}>
-      {icon && (
-        <MaterialCommunityIcons
-          name={icon}
-          size={20}
-          color={colors.medium}
-          style={styles.icon}
+    <>
+      <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
+        <View style={styles.container}>
+          {icon && (
+            <MaterialCommunityIcons
+              name={icon}
+              size={20}
+              color={colors.medium}
+              style={styles.icon}
+            />
+          )}
+          <AppText style={styles.text}>
+            {selectedItem ? selectedItem.label : placeholder}
+          </AppText>
+          <MaterialCommunityIcons
+            name="chevron-down"
+            size={20}
+            color={colors.medium}
+          />
+        </View>
+      </TouchableWithoutFeedback>
+      <Modal visible={modalVisible} animationType="slide">
+        <Button title="Close" onPress={() => setModalVisible(false)} />
+        <FlatList
+          data={items}
+          keyExtractor={(item) => item.value.toString()}
+          renderItem={({ item }) => (
+            <Pickeritem
+              label={item.label}
+              onPress={() => {
+                setModalVisible(false);
+                onSelectItem(item);
+              }}
+            />
+          )}
         />
-      )}
-      <AppText>{placeholder}</AppText>
-    </View>
+      </Modal>
+    </>
   );
 };
 
@@ -31,7 +71,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     width: "100%",
     padding: 15,
-    marginVertical: Constants.statusBarHeight,
+    marginVertical: 10,
   },
   textInput: {
     color: colors.dark,
@@ -40,5 +80,8 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginRight: 10,
+  },
+  text: {
+    flex: 1,
   },
 });
