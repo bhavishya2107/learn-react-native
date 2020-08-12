@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  ImageBackground,
-  Image,
-  Alert,
-} from "react-native";
+import { StyleSheet, Text, View, ImageBackground, Image } from "react-native";
 import AppButton from "../components/AppButton";
 
 const WelcomeScreen = ({ onPress }) => {
@@ -14,13 +7,10 @@ const WelcomeScreen = ({ onPress }) => {
     <ImageBackground
       blurRadius={1}
       style={styles.background}
-      source={require("../../assets/background.jpg")}
+      source={require("../assets/background.jpg")}
     >
       <View style={styles.logoContainer}>
-        <Image
-          style={styles.logo}
-          source={require("../../assets/logo-red.png")}
-        />
+        <Image style={styles.logo} source={require("../assets/logo-red.png")} />
         <Text style={styles.tagline}>Sell what you don't need</Text>
       </View>
       <View style={styles.buttonContainer}>

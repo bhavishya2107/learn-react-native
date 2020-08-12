@@ -18,7 +18,7 @@ export default function ViewImageScreen() {
       </View>
       <Image
         style={styles.chairImage}
-        source={require("../../assets/chair.jpg")}
+        source={require("../assets/chair.jpg")}
         resizeMode="contain"
       />
     </View>

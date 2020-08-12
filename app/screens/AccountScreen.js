@@ -30,7 +30,7 @@ const AccountScreen = () => {
         <ListItem
           title="Bhavishya"
           subTitle="bhavishya.netlify.app"
-          image={require("../../assets/bhavishya.jpeg")}
+          image={require("../assets/bhavishya.jpeg")}
         />
       </View>
       <View style={styles.container}>
