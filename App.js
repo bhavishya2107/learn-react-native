@@ -1,23 +1,24 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import WelcomeScreen from "./app/assets/screens/WelcomeScreen";
-import FirstScreen from "./app/assets/screens/FirstScreen";
-import ViewImageScreen from "./app/assets/screens/ViewImageScreen";
-import Screen from "./app/assets/components/Screen";
-import Icon from "./app/assets/components/Icon";
-import AppText from "./app/assets/components/AppText";
+import WelcomeScreen from "./app/screens/WelcomeScreen";
+import FirstScreen from "./app/screens/FirstScreen";
+import ViewImageScreen from "./app/screens/ViewImageScreen";
+import Screen from "./app/components/Screen";
+import Icon from "./app/components/Icon";
+import AppText from "./app/components/AppText";
 import { View, Alert, SafeAreaView, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import AppButton from "./app/assets/components/AppButton";
-import { handlePress } from "./app/assets/config/methods";
-import AppCard from "./app/assets/components/AppCard";
-import ListingDetailsScreen from "./app/assets/components/ListingDetailsScreen.js";
-import MessagesScreen from "./app/assets/screens/MessagesScreen";
-import ListItem from "./app/assets/components/ListItem";
-import AccountScreen from "./app/assets/screens/AccountScreen";
-import ListingsScreen from "./app/assets/screens/ListingsScreen";
-import AppTextInput from "./app/assets/components/AppTextInput";
-import AppPicker from "./app/assets/components/AppPicker";
+import AppButton from "./app/components/AppButton";
+import { handlePress } from "./app/config/methods";
+import AppCard from "./app/components/AppCard";
+import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
+import MessagesScreen from "./app/screens/MessagesScreen";
+import ListItem from "./app/components/ListItem";
+import AccountScreen from "./app/screens/AccountScreen";
+import ListingsScreen from "./app/screens/ListingsScreen";
+import AppTextInput from "./app/components/AppTextInput";
+import AppPicker from "./app/components/AppPicker";
+import LoginScreen from "./app/screens/LoginScreen";
 
 const categories = [
   { label: "Furniture", value: 1 },
@@ -29,17 +30,21 @@ export default function App() {
   const [category, setCategory] = useState(categories[0]);
   return (
     // <WelcomeScreen onPress={handlePress} />
+
     // <View style={styles.mainView}>
     //   <AppCard
     //     title="Red jacket for sale"
     //     subTitle="$100"
     //     image={require("./app/assets/jacket.jpg")}
     //   />
+
     //   <ListingDetailsScreen title="Red Jacket for sale" subtitle="$100" />
     // </View>
 
     // <FirstScreen />
+
     // <ViewImageScreen />
+
     // <View
     //   style={{
     //     flex: 1,
@@ -51,27 +56,36 @@ export default function App() {
     //   <MaterialCommunityIcons name="email" size={200} color="tomato" />
     //   <AppButton title="Login" />
     // </View>
+
     // <MessagesScreen />
+
     // <Screen>
     //   <ListItem
     //     title="My title"
     //     ImageComponent={<Icon name="email" size={50} />}
     //   />
-    //   {/* <Icon name="email" size={100} /> */}
+    //   <Icon name="email" size={50} />
     // </Screen>
+
     // <AccountScreen />
+
     // <ListingsScreen />
+
     // <AppTextInput placeholder="Username" icon="email" />
-    <Screen>
-      <AppPicker
-        selectedItem={category}
-        onSelectItem={(item) => setCategory(item)}
-        items={categories}
-        icon="apps"
-        placeholder="Category"
-      />
-      <AppTextInput icon="email" placeholder="Email" />
-    </Screen>
+
+    // AppPicker screen
+    // <Screen>
+    //   <AppPicker
+    //     selectedItem={category}
+    //     onSelectItem={(item) => setCategory(item)}
+    //     items={categories}
+    //     icon="apps"
+    //     placeholder="Category"
+    //   />
+    //   <AppTextInput icon="email" placeholder="Email" />
+    // </Screen>
+
+    <LoginScreen />
   );
 }
 
